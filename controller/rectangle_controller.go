@@ -44,6 +44,7 @@ func (c *RectangleController) GetAllRectangles(ctx *gin.Context) {
 	allRectangles, err := c.rectangleService.GetAllRectangles()
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Problem while fetching items"})
+		return
 	}
 	output := make([]dto.Rectangle, len(allRectangles))
 	for i, rect := range allRectangles {
