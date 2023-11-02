@@ -11,8 +11,8 @@ type Rectangle struct {
 }
 
 func (r *Rectangle) Intersects(other Rectangle) bool {
-	return r.X < other.X+other.Width &&
-		r.X+r.Width > other.X &&
-		r.Y < other.Y+other.Height &&
-		r.Y+r.Height > other.Y
+	return r.X <= other.X+other.Width &&
+		r.X+r.Width >= other.X &&
+		r.Y <= other.Y+other.Height &&
+		r.Y+r.Height >= other.Y
 }
